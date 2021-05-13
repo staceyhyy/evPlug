@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8">
+    <title>evPlug</title>
+    <link rel="stylesheet" type="text/css" href="./static/form.css">
+
+</head>
+
+<body>
+    <div class="form">
+        <div class="form-content" id="vehicleForm">
+            <div class="header">
+                <h2> My Vehicle </h2>
+                <hr>
+            </div>
+            <div class="form-input">
+                <form action="/vehicle" class="form-container" method="POST">
+                    {{if .Error}}
+                    <p class="text-danger"> {{.Error}} </p>
+                    {{end}}
+                    <div class="vehicle">
+                        <p>Model: {{.Vehicle}}</p>
+                        <label for="model"> New Model: </label>
+                        <select name="model" id="model">
+                            <option value=none> Please select</option>
+                            {{range $key, $value := .Model}}
+                            <option value={{$key}}> {{$value}}</option>
+                            {{end}}
+                        </select>
+                        <br><br>
+                        <label for="model"> Charger Type: </label>
+                        <br>
+
+                        {{range $key, $val := .Charger}}
+                        <input type="checkbox" id="Charger" name="Charger" value={{$key}} {{$val}}>
+                        <label for={{$key}}> {{$key}}</label><br>
+                        {{end}}
+
+                    </div>
+                    <br><br>
+                    <button type="submit" class="submitbtn">Save My Vehicle</button>
+                </form>
+                <form action="/cancel" class="form-bottom">
+                    <button type="submit" class="cancelbtn">Cancel</button>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8">
+    <title>evPlug</title>
+    <link rel="stylesheet" type="text/css" href="./static/form.css">
+
+</head>
+
+<body>
+    <div class="form">
+        <div class="form-content" id="registerForm">
+            <div class="header">
+                <h2> Register </h2>
+                <hr>
+            </div>
+            <div class="form-input">
+                <form action="/register" class="form-container" method="POST">
+                    {{if .Error}}
+                    <p class="text-danger"> {{.Error}} </p>
+                    {{end}}
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter email" name="email" value={{.Email}}>
+
+                    <label for="user"><b>UserID</b></label>
+                    <input type="text" placeholder="Enter UserID" name="userID" value={{.UserID}}>
+
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password1" autocomplete="off">
+
+                    <label for="password"><b>Repeat Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password2" autocomplete="off">
+
+                    <h8>Password rules: must contain at least 8 characters, one uppercase, one lowercase, one
+                        number and one special character.</h8>
+                    <br><br>
+                    <input type="checkbox" id="current" name="current" value="current">
+                    <label for="current">Use my current location</label>
+                    <br>
+
+                    <button type="submit" class="submitbtn">Create Account</button>
+                </form>
+                <form action="/cancel" class="form-bottom">
+                    <button type="submit" class="cancelbtn">Cancel</button>
+                    <br>
+                    <span class="login">Already have an account? <a href="/login">Login</a></span>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

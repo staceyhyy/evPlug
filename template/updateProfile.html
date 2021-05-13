@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8">
+    <title>evPlug</title>
+    <link rel="stylesheet" type="text/css" href="./static/form.css">
+
+</head>
+
+<body>
+    <div class="form">
+        <div class="form-content" id="updateProfileForm">
+            <div class="header">
+                <h2> Update My Profile </h2>
+                <hr>
+            </div>
+            <div class="form-input">
+                {{if .Error}}
+                <p class="text-danger"> {{.Error}} </p>
+                {{end}}
+                <a href="/changeEmail">Update Email</a> <br><br>
+                <a href="/changePassword">Update Password</a> <br><br>
+                <a href="/vehicle">Update MyVehicle</a> <br><br>
+                <a href="/view">Use My Current Location</a> <br><br>
+
+                <form action="/cancel" class="form-bottom">
+                    <button type="submit" class="submitbtn">Close</button>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

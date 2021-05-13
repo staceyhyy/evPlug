@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8">
+    <title>evPlug</title>
+    <link rel="stylesheet" type="text/css" href="./static/form.css">
+
+</head>
+
+<body>
+    <div class="form">
+        <div class="form-content" id="viewForm">
+            <div class="header">
+                <h2> Change View Setting </h2>
+                <hr>
+            </div>
+            <div class="form-input">
+                <form action="/view" class="form-container" method="POST">
+                    {{if .Error}}
+                    <p class="text-danger"> {{.Error}} </p>
+                    {{end}}
+
+                    <input type="checkbox" id="current" name="current" value="current" {{.Current}}>
+                    <label for="current"> Use my current location</label>
+                    <br><br>
+
+                    <button type="submit" class="submitbtn">Update</button>
+                </form>
+
+                <form action="/cancel" class="form-bottom">
+                    <button type="submit" class="cancelbtn">Cancel</button>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

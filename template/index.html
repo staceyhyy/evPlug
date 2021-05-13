@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8">
+    <title>evPlug</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="topnav">
+            <a class="active" href="#home" onclick="home()">evPlug</a>
+            <div class="topnav-right">
+                {{if .Login}}
+                <div class="dropdown">
+                    <button class="dropbtn">{{.UserID}} profile
+                        <i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content" id="userDropDown">
+                        <a href="/updateProfile"> Update Profile </a>
+                        <a href="/logout"> Logout </a>
+                    </div>
+                </div>
+                {{else}}
+                <a href="/login"> Login </a>
+                <a href="/register"> Register </a>
+                {{end}}
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="left">
+                <div class="navbar">
+                    <div class="searchBar">
+                        <input type='text' id="searchAddress" placeholder="search address">
+                        <button type="submit" id="submit"><i class=" fa fa-search"></i></button>
+                    </div>
+
+                    <br><br>
+                    Filter by :
+                    <br>
+                    <div class="filterBar">
+                        <label for="filterProvider" style="font-size:12px;">Provider </label>
+                        <select id="providerList">
+                            <option value=none> select provider</option>
+                        </select>
+                        <br><br>
+                    </div>
+
+                    <div id="displayInfo"></div>
+                    <br><br>
+
+                </div>
+            </div>
+            <div class="right">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./static/index.js"></script>
+    <script async defer src={{.URL}}> </script>
+</body>
+
+</html>

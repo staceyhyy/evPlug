@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8">
+    <title>evPlug</title>
+    <link rel="stylesheet" type="text/css" href="./static/form.css">
+
+</head>
+
+<body>
+    <div class="form">
+        <div class="form-content" id="passwordForm">
+            <div class="header">
+                <h2> Change Password </h2>
+                <hr>
+            </div>
+            <div class="form-input">
+                <form action="/changePassword" class="form-container" method="POST">
+                    {{if .Error}}
+                    <p class="text-danger"> {{.Error}} </p>
+                    {{end}}
+                    <label for="psw"><b>Current password</b></label>
+                    <input type="password" placeholder="Enter Password" name="oldPassword" autocomplete="off">
+
+                    <label for="psw"><b>New password</b></label>
+                    <input type="password" placeholder="Enter Password" name="newPassword1" autocomplete="off">
+
+                    <label for="psw"><b>Re-enter new password</b></label>
+                    <input type="password" placeholder="Enter Password" name="newPassword2" autocomplete="off">
+
+                    <button type="submit" class="submitbtn">update</button>
+
+                </form>
+
+                <form action="/cancel" class="form-bottom">
+                    <button type="submit" class="cancelbtn">Cancel</button>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

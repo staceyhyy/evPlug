@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8">
+    <title>evPlug</title>
+    <link rel="stylesheet" type="text/css" href="./static/form.css">
+
+</head>
+
+<body>
+    <div class="form">
+        <div class="form-content" id="emailForm">
+            <div class="header">
+                <h2> Change Email Address </h2>
+                <hr>
+            </div>
+            <div class="form-input">
+                <form action="/changeEmail" class="form-container" method="POST">
+                    {{if .Error}}
+                    <p class="text-danger"> {{.Error}} </p>
+                    {{end}}
+                    <label for="oldEmail"><b>Current email address: </b>
+                        {{.Email}} </label>
+                    <br><br>
+                    <label for="newEmail"><b>New email address: </b></label>
+                    <input type="text" placeholder="Enter Email" name="email" autocomplete="off">
+
+                    <button type="submit" class="submitbtn">Update</button>
+                </form>
+
+                <form action="/cancel" class="form-bottom">
+                    <button type="submit" class="cancelbtn">Cancel</button>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

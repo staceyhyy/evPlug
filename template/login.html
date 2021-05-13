@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8">
+    <title>evPlug</title>
+    <link rel="stylesheet" type="text/css" href="./static/form.css">
+
+</head>
+
+<body>
+    <div class="form">
+        <div class="form-content" id="loginForm">
+            <div class="header">
+                <h2> Login </h2>
+                <hr>
+            </div>
+            <div class="form-input">
+                <form action="/login" class="form-container" method="POST">
+                    {{if .Error}}
+                    <p class="text-danger"> {{.Error}} </p>
+                    {{end}}
+                    <label for="user"><b>User ID</b></label>
+                    <input type="text" placeholder="Enter User ID" name="userID">
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" autocomplete="off">
+
+                    <button type="submit" class="submitbtn">Login</button>
+
+                </form>
+
+                <form action="/cancel" class="form-bottom">
+                    <button type="submit" class="cancelbtn">Cancel</button>
+                    <br>
+                    <span class="register"><a href="/register">Click here to register</a></span>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
